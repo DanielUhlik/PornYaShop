@@ -13,13 +13,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PornYaShop.Shared", "PornYa
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{A842B89E-FFF1-4731-9858-F3EC98BFCCA2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PornYaShop.CommunicationServices", "..\PornYaShop.CommunicationServices\PornYaShop.CommunicationServices.csproj", "{864A89DF-FAAE-49A6-BD30-035165E3E69E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PornYaShop.CommunicationServices", "PornYaShop.CommunicationServices\PornYaShop.CommunicationServices.csproj", "{864A89DF-FAAE-49A6-BD30-035165E3E69E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ShopClient", "ShopClient", "{DA9342A3-FFAC-4AEB-92B7-671E10003298}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PornYaShop.Client", "..\PornYaShop.Client\PornYaShop.Client.csproj", "{47279FFD-9514-4A60-BEB2-F24DD106454F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PornYaShop.Client", "PornYaShop.Client\PornYaShop.Client.csproj", "{47279FFD-9514-4A60-BEB2-F24DD106454F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PornYaShop.Admin", "..\PornYaShop.Admin\PornYaShop.Admin.csproj", "{C175B7FC-AF3B-46ED-9C9B-CF769DEACD73}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PornYaShop.Admin", "PornYaShop.Admin\PornYaShop.Admin.csproj", "{C175B7FC-AF3B-46ED-9C9B-CF769DEACD73}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

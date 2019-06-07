@@ -4199,6 +4199,7 @@
       "path": "runtime.native.system.net.http/4.3.0",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/_._",
@@ -4225,6 +4226,7 @@
       "path": "runtime.native.system.security.cryptography.openssl/4.3.0",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/_._",
@@ -6571,6 +6573,7 @@
       "path": "system.reflection.emit.lightweight/4.3.0",
       "files": [
         ".nupkg.metadata",
+        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -8469,8 +8472,8 @@
     },
     "PornYaShop.CommunicationServices/1.0.0": {
       "type": "project",
-      "path": "../../PornYaShop.CommunicationServices/PornYaShop.CommunicationServices.csproj",
-      "msbuildProject": "../../PornYaShop.CommunicationServices/PornYaShop.CommunicationServices.csproj"
+      "path": "../PornYaShop.CommunicationServices/PornYaShop.CommunicationServices.csproj",
+      "msbuildProject": "../PornYaShop.CommunicationServices/PornYaShop.CommunicationServices.csproj"
     },
     "PornYaShop.DataContext/1.0.0": {
       "type": "project",
@@ -8535,8 +8538,8 @@
       "frameworks": {
         "netcoreapp3.0": {
           "projectReferences": {
-            "D:\\pornya\\PornYaShop.CommunicationServices\\PornYaShop.CommunicationServices.csproj": {
-              "projectPath": "D:\\pornya\\PornYaShop.CommunicationServices\\PornYaShop.CommunicationServices.csproj"
+            "D:\\pornya\\PornYaShop\\PornYaShop.CommunicationServices\\PornYaShop.CommunicationServices.csproj": {
+              "projectPath": "D:\\pornya\\PornYaShop\\PornYaShop.CommunicationServices\\PornYaShop.CommunicationServices.csproj"
             }
           }
         }

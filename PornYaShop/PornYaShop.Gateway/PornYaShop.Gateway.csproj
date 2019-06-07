@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\PornYaShop.CommunicationServices\PornYaShop.CommunicationServices.csproj" />
+    <ProjectReference Include="..\PornYaShop.CommunicationServices\PornYaShop.CommunicationServices.csproj" />
   </ItemGroup>
 
 </Project>
