@@ -1,0 +1,49 @@
+﻿$primary-color: #B146C2;
+$primary-light-color: #C239B3;
+$red-color: #E74856;
+$blue-color: #0078D7;
+$green-color: #00CC6A;
+
+.purple-text {
+    color: $primary-light-color;
+}
+
+.red-background {
+    background-color: $red-color;
+}
+
+.red-text {
+    color: $red-color;
+}
+
+.blue-background{
+    background-color: $blue-color;
+}
+
+.blue-text {
+    color: $blue-color;
+}
+
+.green-background {
+    background-color: $green-color;
+}
+
+.green-text {
+    color: $green-color;
+}
+
+.white-background::after {
+    background-color: #fff;
+}
+
+.white-text {
+    color: #fff;
+}
+
+.black-background {
+    background-color: #000;
+}
+
+.black-text {
+    color: #000;
+}

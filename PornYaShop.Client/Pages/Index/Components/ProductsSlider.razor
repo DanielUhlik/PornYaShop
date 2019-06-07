@@ -1,0 +1,32 @@
+﻿<div>
+    <div class="used-products">
+        <div>
+            <h2>Mikina A</h2>
+            <p>Super mikina ktorá sadne na každú postavu</p>
+            <button>Viac</button>
+        </div>
+        <div>
+            <h2>Tričko C</h2>
+            <p>V tomto tričku aj tlstý má postavu ako Michal Jurda</p>
+            <button>Viac</button>
+        </div>
+        <div>
+            <h2>Ľadvinka X</h2>
+            <p>Do tejto ľadvinky odložíš všetko čo potrebuješ a tvoj look bude stále popiči</p>
+            <button>Viac</button>
+        </div>
+    </div>
+    <div class="slider-dots">
+        @foreach (var i in SliderDots)
+        {
+            <span class="slider-dot @(i == 2 ? "active" : "" )"></span>
+        }
+    </div>
+</div>
+<div class="cover-wrapper">
+    <img src="/banner.jpg" />
+</div>
+
+@functions{
+    public int[] SliderDots = { 1, 2, 3, 4, 5 };
+}

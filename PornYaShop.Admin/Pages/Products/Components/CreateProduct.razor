@@ -1,0 +1,59 @@
+﻿@using PornYaShop.Admin.Pages
+@using PornYaShop.DataContext.Entities
+@using PornYaShop.CommunicationServices
+@inject GatewayService _gatewayService
+
+<span uk-icon="plus" uk-toggle="target: #@ModalId"></span>
+
+<Modal Id="@ModalId" Title="Vytvorenie produktu" OnPositive="@CreateNewProduct">
+    <fieldset class="uk-fieldset">
+        <div class="uk-margin uk-form-stacked">
+            <div>
+                <label class="uk-form-label">Názov produktu</label>
+                <input class="uk-input" type="text" placeholder="Názov" bind="@product.Title" />
+            </div>
+            <div>
+                <label class="uk-form-label">Kategória</label>
+                <input disabled class="uk-input" bind="@Category.Name" />
+            </div>
+            <div>
+                <label class="uk-form-label">Cena</label>
+                <input class="uk-input" type="number" bind="@product.Price" />
+            </div>
+            <div>
+                <label class="uk-form-label">Popis</label>
+                <textarea class="uk-textarea" bind="@product.Description"></textarea>
+            </div>
+        </div>
+    </fieldset>
+</Modal>
+
+
+@functions{
+    [Parameter]
+    private Category Category { get; set; }
+
+    [Parameter]
+    private EventCallback<UIMouseEventArgs> OnProductCreated { get; set; }
+
+    private Product product = new Product();
+
+    private string ModalId { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        product.CategoryId = Category.Id;
+        ModalId = "create-product-category" + Category.Id;
+        base.OnParametersSet();
+    }
+
+    private async Task CreateNewProduct(UIMouseEventArgs e)
+    {
+        var results = await _gatewayService.products.CreateProduct(product);
+        if (results != null)
+        {
+            await OnProductCreated.InvokeAsync(null);
+        }
+    }
+
+}

@@ -1,0 +1,163 @@
+services:
+  pornyashop.admin:
+    build:
+      context: D:\pornya\PornYaShop
+      dockerfile: ../PornYaShop.Admin/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: PornYaShop.Admin
+      target: base
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTPS_PORT: '44309'
+      ASPNETCORE_URLS: https://+:443;http://+:80
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages;/root/.nuget/fallbackpackages2
+    image: pornyashopadmin:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages --additionalProbingPath
+        /root/.nuget/fallbackpackages2  "bin/Debug/netcoreapp3.0/PornYaShop.Admin.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - published: 58845
+      target: 80
+    - published: 44309
+      target: 443
+    volumes:
+    - /d/pornya/PornYaShop.Admin:/app:rw
+    - /c/Users/danie/vsdbg/vs2017u5:/remote_debugger:ro
+    - /c/Users/danie/AppData/Roaming/ASP.NET/Https:/root/.aspnet/https:ro
+    - /c/Users/danie/AppData/Roaming/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+    - /c/Program Files/dotnet/sdk/NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
+    - /d/Microsoft/Xamarin/NuGet:/root/.nuget/fallbackpackages2:ro
+    - /c/Users/danie/.nuget/packages:/root/.nuget/packages:ro
+  pornyashop.client:
+    build:
+      context: D:\pornya\PornYaShop
+      dockerfile: ../PornYaShop.Client/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: PornYaShop.Client
+      target: base
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTPS_PORT: '44363'
+      ASPNETCORE_URLS: https://+:443;http://+:80
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages;/root/.nuget/fallbackpackages2
+    image: pornyashopclient:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages --additionalProbingPath
+        /root/.nuget/fallbackpackages2  "bin/Debug/netcoreapp3.0/PornYaShop.Client.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - published: 64578
+      target: 80
+    - published: 44363
+      target: 443
+    volumes:
+    - /d/pornya/PornYaShop.Client:/app:rw
+    - /c/Users/danie/vsdbg/vs2017u5:/remote_debugger:ro
+    - /c/Users/danie/AppData/Roaming/ASP.NET/Https:/root/.aspnet/https:ro
+    - /c/Users/danie/AppData/Roaming/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+    - /c/Program Files/dotnet/sdk/NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
+    - /d/Microsoft/Xamarin/NuGet:/root/.nuget/fallbackpackages2:ro
+    - /c/Users/danie/.nuget/packages:/root/.nuget/packages:ro
+  pornyashop.db:
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: Your_password123
+    image: mcr.microsoft.com/mssql/server
+    ports:
+    - published: 1433
+      target: 1433
+    volumes:
+    - /d/pornya/PornYaShop/.db:/var/opt/mssql/:rw
+    - /var/opt/mssql/data
+  pornyashop.gateway:
+    build:
+      context: D:\pornya\PornYaShop
+      dockerfile: PornYaShop.Gateway/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: PornYaShop.Gateway
+      target: base
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTPS_PORT: '44308'
+      ASPNETCORE_URLS: https://+:443;http://+:80
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages;/root/.nuget/fallbackpackages2
+    image: pornyashopgateway:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages --additionalProbingPath
+        /root/.nuget/fallbackpackages2  "bin/Debug/netcoreapp3.0/PornYaShop.Gateway.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - published: 56150
+      target: 80
+    - published: 44308
+      target: 443
+    volumes:
+    - /d/pornya/PornYaShop/PornYaShop.Gateway:/app:rw
+    - /c/Users/danie/vsdbg/vs2017u5:/remote_debugger:ro
+    - /c/Users/danie/AppData/Roaming/ASP.NET/Https:/root/.aspnet/https:ro
+    - /c/Users/danie/AppData/Roaming/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+    - /c/Program Files/dotnet/sdk/NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
+    - /d/Microsoft/Xamarin/NuGet:/root/.nuget/fallbackpackages2:ro
+    - /c/Users/danie/.nuget/packages:/root/.nuget/packages:ro
+  pornyashop.products:
+    build:
+      context: D:\pornya\PornYaShop
+      dockerfile: PornYaShop.Products/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: PornYaShop.Products
+      target: base
+    depends_on:
+    - pornyashop.db
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTPS_PORT: '44360'
+      ASPNETCORE_URLS: https://+:443;http://+:80
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages;/root/.nuget/fallbackpackages2
+    image: pornyashopproducts:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages --additionalProbingPath
+        /root/.nuget/fallbackpackages2  "bin/Debug/netcoreapp3.0/PornYaShop.Products.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - published: 56641
+      target: 80
+    - published: 44360
+      target: 443
+    volumes:
+    - /d/pornya/PornYaShop/PornYaShop.Products:/app:rw
+    - /c/Users/danie/vsdbg/vs2017u5:/remote_debugger:ro
+    - /c/Users/danie/AppData/Roaming/ASP.NET/Https:/root/.aspnet/https:ro
+    - /c/Users/danie/AppData/Roaming/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+    - /c/Program Files/dotnet/sdk/NuGetFallbackFolder:/root/.nuget/fallbackpackages:ro
+    - /d/Microsoft/Xamarin/NuGet:/root/.nuget/fallbackpackages2:ro
+    - /c/Users/danie/.nuget/packages:/root/.nuget/packages:ro
+version: '3.4'

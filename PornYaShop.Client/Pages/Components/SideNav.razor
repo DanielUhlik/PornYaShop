@@ -1,0 +1,39 @@
+﻿@using PornYaShop.CommunicationServices
+@using PornYaShop.DataContext.Entities
+@inject GatewayService _gatewayService
+
+<div class="side-nav">
+    <div>
+        <h1>P<span class="red-text">o</span>rn<span class="ya">Ya</span></h1>
+        <input type="search" placeholder="Search..." />
+        <div>
+            <i class="material-icons large">
+                shopping_cart
+            </i>
+            <div><p>2 / 98.50€</p></div>
+        </div>
+    </div>
+    <ul>
+        @foreach(var category in Categories)
+        {
+            <li><a>@category.Name</a></li>
+        }
+        <li><a>Zľavy</a></li>
+    </ul>
+    <div>
+        <a>Kontakt</a>
+        <a>Obchodné podmienky</a>
+        <a>Doprava a platba</a>
+        <p>© PornYa s.r.o. 2019-2020</p>
+    </div>
+</div>
+
+@functions{
+    List<Category> Categories { get; set; } = new List<Category>();
+
+    protected override async Task OnInitAsync()
+    {
+        var response = await _gatewayService.categories.GetCategories();
+        Categories = response.Results;
+    }
+}

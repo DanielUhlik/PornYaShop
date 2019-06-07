@@ -1,0 +1,106 @@
+﻿body {
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+    background: url("http://api.thumbr.it/whitenoise-361x370.png?background=ffffffff&noise=626262&density=14&opacity=30");
+    
+    app {
+        display: grid;
+        grid-template: 'sidenav content' 'sidenav footer';
+        grid-template-rows: 100vh 1fr;
+        grid-template-columns: 1fr 5fr;
+        height: 100vh;
+        overflow: hidden;
+
+        .content {
+            grid-area: content;
+            padding: 15px;
+            overflow: auto;
+            display: grid;
+            grid-template: 'benefits productslider' 'products products';
+            grid-template-rows: 4fr 1fr;
+            grid-template-columns: 1fr 4fr;
+            grid-gap: 40px;
+
+            .benefits {
+                grid-area: benefits;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                padding: 20px;
+
+                hr {
+                    width: 80%;
+                    opacity: .4;
+                }
+
+                div {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+
+                    .material-icons {
+                        font-size: 5rem;
+                    }
+                }
+            }
+
+            .products {
+                grid-area: products;
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap;
+            }
+        }
+    }
+}
+
+.material-icons {
+    transition: all linear .2s;
+}
+
+.material-icons.large {
+    font-size: 2rem;
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 10px 10px 19px 0px rgba(0,0,0,0.75);
+}
+
+.cover-wrapper {
+    overflow: hidden;
+    max-height: 100%;
+    max-width: 100%;
+    position: relative;
+
+    img {
+        object-fit: cover;
+        height: 100%;
+        object-position: left;
+    }
+}
+
+.label {
+    color: white;
+    padding: 5px;
+    position: absolute;
+    top: 20px;
+    right: 0;
+    background: $primary-color;
+    text-transform: uppercase;
+    font-size: .7rem;
+
+    &.red {
+        background: $red-color;
+    }
+
+    &.green {
+        background: $green-color;
+    }
+
+    &.blue {
+        background: $blue-color;
+    }
+}

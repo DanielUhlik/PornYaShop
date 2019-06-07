@@ -1,0 +1,21 @@
+﻿@page "/"
+@namespace PornYaShop.Client.Pages
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PornYaShop.Client</title>
+    <link rel="stylesheet" href="~/css/scss/style.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Just+Another+Hand|Raleway:400,900" rel="stylesheet">
+    <base href="~/" />
+</head>
+<body>
+    <app>@(await Html.RenderComponentAsync<App>())</app>
+
+    <script src="_framework/blazor.server.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+D:\pornya\PornYaShop.CommunicationServices\bin\Debug\netstandard2.0\PornYaShop.CommunicationServices.deps.json
+D:\pornya\PornYaShop.CommunicationServices\bin\Debug\netstandard2.0\PornYaShop.CommunicationServices.dll
+D:\pornya\PornYaShop.CommunicationServices\bin\Debug\netstandard2.0\PornYaShop.CommunicationServices.pdb
+D:\pornya\PornYaShop.CommunicationServices\bin\Debug\netstandard2.0\PornYaShop.DataContext.dll
+D:\pornya\PornYaShop.CommunicationServices\bin\Debug\netstandard2.0\PornYaShop.Shared.dll
+D:\pornya\PornYaShop.CommunicationServices\bin\Debug\netstandard2.0\PornYaShop.DataContext.pdb
+D:\pornya\PornYaShop.CommunicationServices\bin\Debug\netstandard2.0\PornYaShop.Shared.pdb
+D:\pornya\PornYaShop.CommunicationServices\obj\Debug\netstandard2.0\PornYaShop.CommunicationServices.csprojAssemblyReference.cache
+D:\pornya\PornYaShop.CommunicationServices\obj\Debug\netstandard2.0\PornYaShop.CommunicationServices.csproj.CoreCompileInputs.cache
+D:\pornya\PornYaShop.CommunicationServices\obj\Debug\netstandard2.0\PornYaShop.CommunicationServices.AssemblyInfoInputs.cache
+D:\pornya\PornYaShop.CommunicationServices\obj\Debug\netstandard2.0\PornYaShop.CommunicationServices.AssemblyInfo.cs
+D:\pornya\PornYaShop.CommunicationServices\obj\Debug\netstandard2.0\PornYaShop.CommunicationServices.csproj.CopyComplete
+D:\pornya\PornYaShop.CommunicationServices\obj\Debug\netstandard2.0\PornYaShop.CommunicationServices.dll
+D:\pornya\PornYaShop.CommunicationServices\obj\Debug\netstandard2.0\PornYaShop.CommunicationServices.pdb

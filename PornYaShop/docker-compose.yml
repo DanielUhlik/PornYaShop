@@ -1,0 +1,29 @@
+version: '3.4'
+
+services:
+  pornyashop.gateway:
+    image: ${DOCKER_REGISTRY-}pornyashopgateway
+    build:
+      context: .
+      dockerfile: PornYaShop.Gateway/Dockerfile
+
+  pornyashop.products:
+    image: ${DOCKER_REGISTRY-}pornyashopproducts
+    build:
+      context: .
+      dockerfile: PornYaShop.Products/Dockerfile
+
+
+  pornyashop.client:
+    image: ${DOCKER_REGISTRY-}pornyashopclient
+    build:
+      context: .
+      dockerfile: ../PornYaShop.Client/Dockerfile
+
+
+  pornyashop.admin:
+    image: ${DOCKER_REGISTRY-}pornyashopadmin
+    build:
+      context: .
+      dockerfile: ../PornYaShop.Admin/Dockerfile
+

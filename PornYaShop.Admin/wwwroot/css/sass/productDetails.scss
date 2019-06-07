@@ -1,0 +1,24 @@
+﻿.product-details {
+    display: grid;
+    grid-template-areas: "title title title" "product-image details details" "variants variants variants";
+    grid-gap: 10px;
+    grid-template-rows: auto auto 500px;
+
+    .title {
+        grid-area: title;
+    }
+
+    .product-image {
+        grid-area: product-image;
+        background: red;
+    }
+
+    .details {
+        grid-area: details;
+    }
+
+    .variants {
+        grid-area: variants;
+        background: red;
+    }
+}

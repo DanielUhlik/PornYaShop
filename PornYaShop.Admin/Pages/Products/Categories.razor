@@ -1,0 +1,70 @@
+﻿@page "/categories"
+@using PornYaShop.DataContext.Entities
+@using PornYaShop.Admin.Pages.Products.Components
+
+@using PornYaShop.CommunicationServices
+@inject GatewayService _gatewayService
+
+<button class="fab" uk-icon="plus" uk-toggle="target: #create-category"></button>
+
+<div class="uk-flex uk-flex-center" uk-grid>
+    <ul class="uk-width-1-2" uk-accordion style="@(remove ? "background: red" : "")">
+        @foreach (var category in AllCategories)
+        {
+            <li class="accordion-header">
+                <a class="uk-accordion-title">@category.Name</a>
+                <CreateProduct Category="@category"></CreateProduct>
+                <div class="uk-accordion-content">
+                    <table class="uk-table uk-table-striped">
+                        <tbody>
+                            @foreach (var product in category.Products)
+                            {
+                                <tr>
+                                    <td><NavLink class="nav-link" href="@($"/product/{product.Id}")">@product.Title</NavLink></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </li>
+        }
+    </ul>
+</div>
+
+<Modal Id="create-category" Title="Nová kategória" OnPositive="@OnCategoryCreated" OnNegative="@OnCategoryCreateCancel">
+    <fieldset class="uk-fieldset">
+        <div class="uk-margin">
+            <input class="uk-input" type="text" placeholder="Názov" bind="@NewCategory.Name" />
+
+        </div>
+    </fieldset>
+</Modal>
+
+@functions{
+    List<Category> AllCategories { get; set; } = new List<Category>();
+    Category NewCategory = new Category();
+    bool remove = false;
+
+    protected override async Task OnInitAsync()
+    {
+        var response = await _gatewayService.categories.GetCategoriesWithProductsAsync();
+        AllCategories = response.Results;
+    }
+
+    private async Task OnCategoryCreated(UIMouseEventArgs e)
+    {
+        var response = await _gatewayService.categories.CreateCategory(NewCategory);
+        AllCategories.Add(response.Results);
+        NewCategory.Name = "";
+    }
+
+    private void OnCategoryCreateCancel(UIMouseEventArgs e)
+    {
+        NewCategory.Name = "";
+    }
+
+    private void OnProductAdd(UIMouseEventArgs product)
+    {
+        //AllCategories.First(c => c.Id == product.CategoryId).Products.Add(product);
+    }
+}

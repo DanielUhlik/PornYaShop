@@ -1,0 +1,73 @@
+﻿.products-slider {
+    grid-area: productslider;
+    display: grid;
+    grid-template: "usedproducts image";
+    grid-template-columns: 1fr 3fr;
+    overflow: hidden;
+
+    & > div:first-child {
+        grid-area: usedproducts;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+        justify-content: space-between;
+
+        .used-products {
+            h2 {
+                font-size: 2rem;
+            }
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px;
+            width: 90%;
+            transition: all linear .1s;
+
+            .slider-dot {
+                background: $primary-color;
+                border-radius: 50%;
+                width: 10px;
+                height: 10px;
+                box-sizing: border-box;
+                cursor: pointer;
+
+                &.active {
+                    background: white;
+                    border: solid 2px $primary-color;
+                    transform: scale(1.3);
+                }
+
+                &:hover {
+                    background: white;
+                    border: solid 2px $primary-color;
+                }
+            }
+        }
+    }
+
+    & > div:nth-child(2) {
+        grid-area: image;
+    }
+
+    button {
+        background: white;
+        border: 1px solid $primary-color;
+        color: $primary-color;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all linear .2s;
+        font-weight: bold;
+
+
+        &:hover {
+            background: $primary-color;
+            color: white;
+        }
+    }
+}

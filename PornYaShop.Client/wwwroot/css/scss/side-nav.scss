@@ -1,0 +1,118 @@
+﻿.side-nav {
+    grid-area: sidenav;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 50px 0px 15px -50px rgba(0,0,0,0.75);
+    background: radial-gradient(circle, rgb(255, 255, 255) 50%, rgba(255, 255, 255, 0) 100%);
+
+    div:first-child {
+        width: 100%;
+        padding: 0 5%;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h1 {
+            font-weight: 900;
+            text-align: center;
+            font-size: 3rem;
+        }
+
+        .ya {
+            font-family: 'Just Another Hand', cursive;
+            font-size: 3.5rem;
+            color: $red-color;
+        }
+
+        input {
+            border-radius: 50px;
+            border: none;
+            height: 40px;
+            width: 90%;
+            padding: 0 15px;
+            transition: all linear .1s;
+            box-shadow: 4px 4px 10px 0px rgba(0,0,0,0.75);
+
+            &:focus {
+                border: none;
+                outline: none;
+                transform: scale(1.2)
+            }
+        }
+
+        & > div {
+            display: flex;
+            justify-content: center;
+            margin: 15px;
+            flex-direction: row;
+            width: 100%;
+
+            i {
+                font-size: 3rem;
+            }
+
+            div {
+                background-color: $primary-light-color;
+                position: relative;
+                padding: 10px;
+                margin-left: 0px;
+                transform: scale(.7);
+
+                p {
+                    font-size: 1.5rem;
+                    margin: 0;
+                    color: #fff;
+                }
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: -1%;
+                    left: -19px;
+                    width: 0;
+                    height: 0;
+                    border-top: 24px solid transparent;
+                    border-bottom: 25px solid transparent;
+                    border-right: 30px solid $primary-light-color;
+                }
+            }
+        }
+    }
+
+    ul {
+        width: 100%;
+        list-style-type: none;
+        padding: 0;
+
+        li {
+            padding: 20px 20px;
+            width: calc(100% - 40px);
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            a {
+                font-weight: 500;
+                font-size: 1.5rem;
+                cursor: pointer;
+                transition: all linear .1s;
+                width: 100%;
+            }
+
+            &:hover a {
+                font-size: 2.2rem;
+                display: block;
+            }
+        }
+    }
+
+    div:last-child {
+        display: flex;
+        flex-direction: column;
+    }
+}

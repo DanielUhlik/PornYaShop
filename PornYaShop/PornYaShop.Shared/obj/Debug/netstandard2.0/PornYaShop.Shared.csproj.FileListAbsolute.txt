@@ -1,0 +1,9 @@
+D:\pornya\PornYaShop\PornYaShop.Shared\bin\Debug\netstandard2.0\PornYaShop.Shared.deps.json
+D:\pornya\PornYaShop\PornYaShop.Shared\bin\Debug\netstandard2.0\PornYaShop.Shared.dll
+D:\pornya\PornYaShop\PornYaShop.Shared\bin\Debug\netstandard2.0\PornYaShop.Shared.pdb
+D:\pornya\PornYaShop\PornYaShop.Shared\obj\Debug\netstandard2.0\PornYaShop.Shared.csproj.CoreCompileInputs.cache
+D:\pornya\PornYaShop\PornYaShop.Shared\obj\Debug\netstandard2.0\PornYaShop.Shared.AssemblyInfoInputs.cache
+D:\pornya\PornYaShop\PornYaShop.Shared\obj\Debug\netstandard2.0\PornYaShop.Shared.AssemblyInfo.cs
+D:\pornya\PornYaShop\PornYaShop.Shared\obj\Debug\netstandard2.0\PornYaShop.Shared.dll
+D:\pornya\PornYaShop\PornYaShop.Shared\obj\Debug\netstandard2.0\PornYaShop.Shared.pdb
+D:\pornya\PornYaShop\PornYaShop.Shared\obj\Debug\netstandard2.0\PornYaShop.Shared.csprojAssemblyReference.cache

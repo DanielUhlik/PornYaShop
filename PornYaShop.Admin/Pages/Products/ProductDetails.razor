@@ -1,0 +1,65 @@
+﻿@page "/product/{Id:int}"
+@using PornYaShop.DataContext.Entities
+@using PornYaShop.CommunicationServices
+@using PornYaShop.Shared.Models.ViewModels
+@using PornYaShop.Admin.Services
+
+@inject GatewayService _gatewayService
+@inject NotificationService _notificationService
+
+
+<div class="product-details">
+    <h1 class="title">@product.Title</h1>
+    <div class="product-image"></div>
+    <div class="details" uk-grid>
+        <div class="uk-margin uk-form-stacked uk-width-1-2">
+            <div>
+                <label class="uk-form-label">Názov produktu</label>
+                <input class="uk-input" type="text" placeholder="Názov" bind="@product.Title" />
+            </div>
+            <div>
+                <label class="uk-form-label">Cena</label>
+                <input class="uk-input" type="number" bind="@product.Price" />
+            </div>
+            <div>
+                <label class="uk-form-label">Popis</label>
+                <textarea class="uk-textarea" bind="@product.Description"></textarea>
+            </div>
+        </div>
+        <div class="uk-width-1-2"></div>
+    </div>
+    <div class="variants"></div>
+</div>
+
+<div class="fab" onclick="@UpdateProduct">
+    <span uk-icon="icon: pull; ratio: 1.5"></span>
+</div>
+
+@functions {
+    [Parameter]
+    int Id { get; set; }
+
+    Product product = new Product();
+
+    protected override async Task OnInitAsync()
+    {
+        BaseResponse<Product> response = await _gatewayService.products.GetByIdAsync(Id);
+        if (response.IsSuccess)
+        {
+            product = response.Results;
+        }
+    }
+
+    async Task UpdateProduct()
+    {
+        var results = await _gatewayService.products.EditAsync(product);
+        if (results.IsSuccess)
+        {
+            _notificationService.ShowNotification("Uložené", Data.NotificationStatus.Success);
+        }
+        else
+        {
+            _notificationService.ShowNotification("Problém pri ukladaní, <br /> " + results.Errors.Errors[0].Description, Data.NotificationStatus.Error);
+        }
+    }
+}

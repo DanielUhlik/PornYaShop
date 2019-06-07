@@ -1,0 +1,56 @@
+﻿@page "/"
+@using PornYaShop.Client.Pages.Index.Components
+@using PornYaShop.Client.Pages.Components
+
+<div class="content">
+    <div class="benefits card">
+        <div>
+            <i class="material-icons">alarm</i>
+            <h2>Rýchle doručenie</h2>
+            <p>Tovar objednaný do 13:30 príde na druhý deň</p>
+        </div>
+        <hr />
+        <div>
+            <i class="material-icons">high_quality</i>
+            <h2>Kvalita</h2>
+            <p>Kvalitný materiál a spracovanie je priorita</p>
+        </div>
+        <hr />
+        <div>
+            <i class="material-icons">landscape</i>
+            <h2>Príroda</h2>
+            <p>Pri balení a iných blbostiach sa staráme o prírodu</p>
+        </div>
+    </div>
+    <div class="products-slider card"><ProductsSlider></ProductsSlider></div>
+    <div class="products">
+        @foreach (var product in Products)
+        {
+            <ProductCard Title="@product.Title" Price="@product.Price"></ProductCard>
+        }
+    </div>
+</div>
+
+
+
+@functions{
+    public class Product
+    {
+        public string Title { get; set; }
+        public decimal Price { get; set; }
+    }
+
+    public List<Product> Products = new List<Product>() {
+        new Product{Title = "Mikina basic, čierna", Price = 55M},
+        new Product {Title = "Tričko dobré, biele", Price = 20M },
+        new Product {Title = "Kabelka Michal, tmavá", Price = 17.50M },
+        new Product {Title = "Tričko PornYa, čierne", Price = 20M },
+        new Product {Title = "Mikina s textom, biele", Price = 18.14M },
+    };
+
+
+    protected override async Task OnInitAsync()
+    {
+    }
+
+}

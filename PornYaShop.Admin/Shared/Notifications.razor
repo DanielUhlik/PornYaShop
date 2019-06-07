@@ -1,0 +1,16 @@
+﻿@using PornYaShop.Admin.Data
+@inject PornYaShop.Admin.Services.NotificationService _notificationService
+@inject IJSRuntime JsRuntime
+
+@functions{
+
+    protected override void OnInit()
+    {
+        _notificationService.OnNotificationShow += ShowNotification;
+    }
+
+    private void ShowNotification(Notification notification)
+    {
+        JsRuntime.InvokeAsync<string>("showNotification", notification.Text, notification.NotificationStatus);
+    }
+}

@@ -1,0 +1,24 @@
+﻿<div id="@Id" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <h2 class="uk-modal-title">@Title</h2>
+        @ChildContent
+        <p class="uk-text-right">
+            <button class="uk-button uk-button-default uk-modal-close" type="button" onclick="@OnNegative">Cancel</button>
+            <button class="uk-button uk-button-primary uk-modal-close" type="button" onclick="@OnPositive">Save</button>
+        </p>
+    </div>
+</div>
+
+@functions {
+    [Parameter]
+    private string Title { get; set; }
+    [Parameter]
+    private RenderFragment ChildContent { get; set; }
+    [Parameter]
+    private string Id { get; set; }
+
+    [Parameter]
+    private EventCallback<UIMouseEventArgs> OnPositive { get; set; }
+    [Parameter]
+    private EventCallback<UIMouseEventArgs> OnNegative { get; set; }
+}
