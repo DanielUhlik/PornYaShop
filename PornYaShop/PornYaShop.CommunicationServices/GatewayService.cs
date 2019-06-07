@@ -41,6 +41,15 @@ namespace PornYaShop.CommunicationServices
             }
         }
 
+        public class ProductVariants
+        {
+            public async Task<BaseResponse<ProductVariant>> CreateProductVariant(ProductVariant model)
+            {
+                //var x = await RestClient.Post<ProductVariant>(Endpoints.Gateway.)
+                return default;
+            }
+        }
+
         public class Categories
         {
             public async Task<BaseResponse<List<Category>>> GetCategoriesWithProductsAsync()

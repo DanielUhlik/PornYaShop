@@ -35,7 +35,7 @@ namespace PornYaShop.Gateway.Controllers
         [HttpPost("products")]
         public async Task<IActionResult> Create([FromBody] Product model)
         {
-            var response = await _productsService.CreateAsync(model);
+            var response = await _productsService.CreateProductAsync(model);
             if (response.IsSuccess)
                 return Ok(response);
             return BadRequest(response);
@@ -44,7 +44,7 @@ namespace PornYaShop.Gateway.Controllers
         [HttpPut("products")]
         public async Task<IActionResult> Edit([FromBody] Product model)
         {
-            var response = await _productsService.EditAsync(model);
+            var response = await _productsService.EditproductAsync(model);
             if (response.IsSuccess)
                 return Ok(response);
             return BadRequest(response);

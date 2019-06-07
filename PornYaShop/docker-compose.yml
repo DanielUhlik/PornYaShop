@@ -18,12 +18,12 @@ services:
     image: ${DOCKER_REGISTRY-}pornyashopclient
     build:
       context: .
-      dockerfile: ../PornYaShop.Client/Dockerfile
+      dockerfile: PornYaShop.Client/Dockerfile
 
 
   pornyashop.admin:
     image: ${DOCKER_REGISTRY-}pornyashopadmin
     build:
       context: .
-      dockerfile: ../PornYaShop.Admin/Dockerfile
+      dockerfile: PornYaShop.Admin/Dockerfile
 

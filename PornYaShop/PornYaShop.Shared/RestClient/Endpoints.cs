@@ -33,6 +33,15 @@ namespace PornYaShop.Shared.RestClient
             public static string GetById(int id) => baseUrl + id;
         }
 
+        public static class ProductVariants
+        {
+            private static readonly string baseUrl = "https://pornyashop.products:443/api/productVariants/";
+            public static string Create = baseUrl;
+            public static string GetProductVariants(int productId) => baseUrl + "/product/" + productId;
+            public static string GetById(int id) => baseUrl + id;
+            public static string Edit = baseUrl;
+        }
+
         public static class Categories
         {
             private static readonly string baseUrl = "https://pornyashop.products:443/api/categories/";

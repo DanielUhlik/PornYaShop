@@ -19,7 +19,8 @@ namespace PornYaShop.Products.Services
             _context = context;
         }
 
-        public async Task<BaseResponse<Product>> CreateAsync(Product product)
+        #region Products
+        public async Task<BaseResponse<Product>> CreateProductAsync(Product product)
         {
             var response = new BaseResponse<Product>();
             _ = await  response.SafeCall(async () =>
@@ -45,7 +46,7 @@ namespace PornYaShop.Products.Services
             return response;
         }
 
-        public async Task<BaseResponse<Product>> GetByIdAsync(int id)
+        public async Task<BaseResponse<Product>> GetProductByIdAsync(int id)
         {
             BaseResponse<Product> response = new BaseResponse<Product>();
 
@@ -67,5 +68,58 @@ namespace PornYaShop.Products.Services
 
             return response;
         }
+
+        #endregion
+
+        #region ProductVariants
+
+        public BaseResponse<IEnumerable<ProductVariant>> GetProductVariants(int productId) {
+            BaseResponse<IEnumerable<ProductVariant>> response = new BaseResponse<IEnumerable<ProductVariant>>();
+
+            _ = response.SafeCall(async () =>
+            {
+                response.Results = _context.ProductVariant.Include(pv => pv.Product).Where(pv => pv.ProductId == productId);
+            });
+
+            return response;
+        }
+
+        public async Task<BaseResponse<ProductVariant>> GetProductVariant(int id) {
+            BaseResponse<ProductVariant> response = new BaseResponse<ProductVariant>();
+
+            _ = await response.SafeCall(async () =>
+            {
+                response.Results = await _context.ProductVariant.Include(pv => pv.ProductId).FirstAsync(pv => pv.Id == id);
+            });
+
+            return response;
+        }
+
+        public async Task<BaseResponse<ProductVariant>> CreateProductVariantAsync(ProductVariant productVariant) {
+            BaseResponse<ProductVariant> response = new BaseResponse<ProductVariant>();
+
+            _ = await response.SafeCall(async () =>
+            {
+                _context.Add(productVariant);
+                await _context.SaveChangesAsync();
+                response.Results = productVariant;
+            });
+
+            return response;
+        }
+        public async Task<BaseResponse<ProductVariant>> EditProductVariantAsync(ProductVariant productVariant) {
+            BaseResponse<ProductVariant> response = new BaseResponse<ProductVariant>();
+
+            _ = await response.SafeCall(async () =>
+            {
+                _context.Update(productVariant);
+                await _context.SaveChangesAsync();
+                response.Results = productVariant;
+            });
+
+            return response;
+        }
+
+        #endregion
     }
 }

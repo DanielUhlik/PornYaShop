@@ -28,14 +28,14 @@ namespace PornYaShop.Products.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] Product product)
         {
-            var response = await _productsService.CreateAsync(product);
+            var response = await _productsService.CreateProductAsync(product);
             return Ok(response);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById([FromRoute] int id)
         {
-            return Ok(await _productsService.GetByIdAsync(id));
+            return Ok(await _productsService.GetProductByIdAsync(id));
         }
 
         [HttpPut]

@@ -23,7 +23,7 @@ namespace PornYaShop.Gateway.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var response = await _productsService.GetAllAsync();
+            var response = await _productsService.GetAllProductsAsync();
             if (response.IsSuccess)
                 return Ok(response);
             return BadRequest(response);
@@ -32,7 +32,7 @@ namespace PornYaShop.Gateway.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById([FromRoute] int id)
         {
-            var response = await _productsService.GetByIdAsync(id);
+            var response = await _productsService.GetProductByIdAsync(id);
             if (response.IsSuccess)
                 return Ok(response);
             return NotFound();
