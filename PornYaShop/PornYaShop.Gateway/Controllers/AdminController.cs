@@ -23,7 +23,7 @@ namespace PornYaShop.Gateway.Controllers
         }
 
         [HttpPost("categories")]
-        public async Task<IActionResult> Create([FromBody] Category model)
+        public async Task<IActionResult> CreateCategory([FromBody] Category model)
         {
             var response = await _categoriesService.CreateAsync(model);
             if (response.IsSuccess)
@@ -33,7 +33,7 @@ namespace PornYaShop.Gateway.Controllers
 
 
         [HttpPost("products")]
-        public async Task<IActionResult> Create([FromBody] Product model)
+        public async Task<IActionResult> CreateProduct([FromBody] Product model)
         {
             var response = await _productsService.CreateProductAsync(model);
             if (response.IsSuccess)
@@ -42,9 +42,27 @@ namespace PornYaShop.Gateway.Controllers
         }
 
         [HttpPut("products")]
-        public async Task<IActionResult> Edit([FromBody] Product model)
+        public async Task<IActionResult> EditProduct([FromBody] Product model)
         {
             var response = await _productsService.EditproductAsync(model);
+            if (response.IsSuccess)
+                return Ok(response);
+            return BadRequest(response);
+        }
+
+        [HttpPost("productsVariants")]
+        public async Task<IActionResult> CreateProductVariant([FromBody] ProductVariant productVariant)
+        {
+            var response = await _productsService.CreateProductVariantAsync(productVariant);
+            if (response.IsSuccess)
+                return Ok(response);
+            return BadRequest(response);
+        }
+
+        [HttpPut("productsVariants")]
+        public async Task<IActionResult> EditProductVariant([FromBody] ProductVariant productVariant)
+        {
+            var response = await _productsService.EditProductVariantAsync(productVariant);
             if (response.IsSuccess)
                 return Ok(response);
             return BadRequest(response);
