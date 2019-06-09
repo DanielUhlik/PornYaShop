@@ -1,42 +1,23 @@
-﻿<div class="product-card card">
+﻿@using PornYaShop.DataContext.Entities
+
+<div class="product-card card">
     <div class="cover-wrapper">
         <img src="https://www.armyoriginal.sk/images/Hawk_para_belum_siva.jpg" />
-        <span class="label @Labels[RandomNum].Color">@Labels[RandomNum].Title</span>
+        @*<span class="label @Labels[RandomNum].Color">@Labels[RandomNum].Title</span>*@
     </div>
-    <h3 class="title">@Title</h3>
+    <h3 class="title">@(product.Title), @(productVariant.Title)</h3>
     <hr />
-    <div class="product-card-price">
-        <h2 class="price">@Price€</h2>
+    <div class="product-card-price @(productVariant.Discount > 0 ? "discount": "")">
+        <h2 class="price">@product.Price€</h2>
+        <h2 class="discount-price">@productVariant.CalcDiscountPrice(product.Price)€</h2>
     </div>
 </div>
 
 @functions {
 
-    public class Label
-    {
-        public string Title { get; set; }
-        public string Color { get; set; }
-
-        public Label(string title, string color)
-        {
-            Title = title;
-            Color = color;
-        }
-    }
+    [Parameter]
+    ProductVariant productVariant { get; set; }
 
     [Parameter]
-    public string Title { get; set; }
-    [Parameter]
-    public decimal Price { get; set; }
-
-    public Label[] Labels = { new Label("Nové", ""), new Label("Bazár", "blue"), new Label("Akcia", "red"), new Label("Skúška", "green") };
-
-    public int RandomNum
-    {
-        get
-        {
-            var rand = new Random();
-            return rand.Next(0, 4);
-        }
-    }
+    Product product { get; set; }
 }

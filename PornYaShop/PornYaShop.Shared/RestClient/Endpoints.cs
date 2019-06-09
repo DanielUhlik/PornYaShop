@@ -14,6 +14,7 @@ namespace PornYaShop.Shared.RestClient
                 public static string GetAll = baseUrl + "products";
                 public static string Create = baseUrl + "admin/products";
                 public static string Edit = baseUrl + "admin/products";
+                public static string Filter = baseUrl + "products/filter";
             }
 
             public static class ProductVariants
@@ -38,6 +39,7 @@ namespace PornYaShop.Shared.RestClient
             public static string Create = baseUrl;
             public static string GetAll = baseUrl;
             public static string Edit = baseUrl;
+            public static string Filter = baseUrl + "filter";
             public static string GetById(int id) => baseUrl + id;
         }
 

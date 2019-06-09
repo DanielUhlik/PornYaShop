@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PornYaShop.CommunicationServices;
 using PornYaShop.DataContext.Entities;
+using PornYaShop.Shared.Models.Requests;
 
 namespace PornYaShop.Gateway.Controllers
 {
@@ -33,6 +34,15 @@ namespace PornYaShop.Gateway.Controllers
         public async Task<IActionResult> GetById([FromRoute] int id)
         {
             var response = await _productsService.GetProductByIdAsync(id);
+            if (response.IsSuccess)
+                return Ok(response);
+            return NotFound();
+        }
+
+        [HttpPost("filter")]
+        public async Task<IActionResult> FilterProducts([FromBody] ProductsFilter productsFilter)
+        {
+            var response = await _productsService.FilterProducts(productsFilter);
             if (response.IsSuccess)
                 return Ok(response);
             return NotFound();

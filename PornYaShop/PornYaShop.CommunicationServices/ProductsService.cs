@@ -1,4 +1,5 @@
 ﻿using PornYaShop.DataContext.Entities;
+using PornYaShop.Shared.Models.Requests;
 using PornYaShop.Shared.Models.ViewModels;
 using PornYaShop.Shared.RestClient;
 using System;
@@ -32,6 +33,11 @@ namespace PornYaShop.CommunicationServices
             return await RestClient.Put<Product>(Endpoints.Products.Edit, product);
         }
 
+        public async Task<BaseResponse<IEnumerable<Product>>> FilterProducts(ProductsFilter productsFilter)
+        {
+            return await RestClient.Post<IEnumerable<Product>>(Endpoints.Products.Filter, productsFilter);
+        }
+
         #endregion
 
         #region ProductVariants
@@ -40,7 +46,7 @@ namespace PornYaShop.CommunicationServices
         {
             return await RestClient.Post<ProductVariant>(Endpoints.ProductVariants.Create, productVariant);
         }
-
+        
         public async Task<BaseResponse<IEnumerable<ProductVariant>>> GetProductVariantsAsync(int productId)
         {
             return await RestClient.Get<IEnumerable<ProductVariant>>(Endpoints.ProductVariants.GetProductVariants(productId));

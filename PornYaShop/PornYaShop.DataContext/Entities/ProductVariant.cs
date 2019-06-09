@@ -12,5 +12,10 @@ namespace PornYaShop.DataContext.Entities
         public ICollection<ProductSize> Sizes { get; set; }
         public Product Product { get; set; }
         public int ProductId { get; set; }
+
+        public decimal CalcDiscountPrice(decimal price)
+        {
+            return (price / 100) * Discount;
+        }
     }
 }

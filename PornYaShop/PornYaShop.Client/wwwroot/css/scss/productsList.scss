@@ -1,0 +1,11 @@
+﻿.products-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .products-list {
+        display: flex;
+        flex-wrap: wrap;
+
+    }
+}

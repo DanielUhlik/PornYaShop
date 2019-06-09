@@ -24,7 +24,7 @@
 
 @functions {
     [Parameter]
-    ICollection<ProductSize> ProductSizes { get; set; }
+    ICollection<ProductSize> ProductSizes { get; set; } = new List<ProductSize>();
 
     void AddSize()
     {

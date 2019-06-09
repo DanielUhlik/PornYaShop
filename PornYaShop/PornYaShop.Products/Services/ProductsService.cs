@@ -2,6 +2,7 @@
 using PornYaShop.DataContext.Data;
 using PornYaShop.DataContext.Entities;
 using PornYaShop.Products.Services.Interfaces;
+using PornYaShop.Shared.Models.Requests;
 using PornYaShop.Shared.Models.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -64,6 +65,23 @@ namespace PornYaShop.Products.Services
             _ = response.SafeCall(async () =>
             {
                 response.Results = _context.Product.Include(p => p.Variants);
+            });
+
+            return response;
+        }
+
+        public async Task<BaseResponse<IEnumerable<Product>>> Filter(ProductsFilter productsFilter)
+        {
+            BaseResponse<IEnumerable<Product>> response = new BaseResponse<IEnumerable<Product>>();
+
+            _ = await response.SafeCall(async () =>
+            {
+                var allByFilter = _context.Product.Include(p => p.Variants)
+                    .Where(p => p.CategoryId == productsFilter.CategoryId);
+                    
+                response.Results = allByFilter.Skip(productsFilter.Page * productsFilter.PerPage).Take(productsFilter.PerPage);
+                response.Page = productsFilter.Page;
+                response.TotalPages = allByFilter.Count() / productsFilter.PerPage;
             });
 
             return response;

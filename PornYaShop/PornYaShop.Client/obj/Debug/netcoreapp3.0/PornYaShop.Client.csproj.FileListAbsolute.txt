@@ -174,3 +174,7 @@ D:\pornya\PornYaShop\PornYaShop.Client\obj\Debug\netcoreapp3.0\PornYaShop.Client
 D:\pornya\PornYaShop\PornYaShop.Client\obj\Debug\netcoreapp3.0\PornYaShop.Client.csproj.CopyComplete
 D:\pornya\PornYaShop\PornYaShop.Client\obj\Debug\netcoreapp3.0\PornYaShop.Client.dll
 D:\pornya\PornYaShop\PornYaShop.Client\obj\Debug\netcoreapp3.0\PornYaShop.Client.pdb
+D:\pornya\PornYaShop\PornYaShop.Client\obj\Debug\netcoreapp3.0\RazorDeclaration\Pages\ProductList.razor.g.cs
+D:\pornya\PornYaShop\PornYaShop.Client\obj\Debug\netcoreapp3.0\Razor\Pages\ProductList.razor.g.cs
+D:\pornya\PornYaShop\PornYaShop.Client\obj\Debug\netcoreapp3.0\RazorDeclaration\Pages\Components\PaginationList.razor.g.cs
+D:\pornya\PornYaShop\PornYaShop.Client\obj\Debug\netcoreapp3.0\Razor\Pages\Components\PaginationList.razor.g.cs

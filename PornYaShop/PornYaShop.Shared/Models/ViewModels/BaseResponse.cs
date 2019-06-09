@@ -11,6 +11,8 @@ namespace PornYaShop.Shared.Models.ViewModels
         public ErrorViewModel Errors = new ErrorViewModel();
         public T Results { get; set; }
         public bool IsSuccess => !Errors.Errors.Any();
+        public int Page { get; set; } = 0;
+        public int TotalPages { get; set; } = 0;
 
         public async Task<bool> SafeCall(Func<Task> function)
         {
@@ -24,6 +26,11 @@ namespace PornYaShop.Shared.Models.ViewModels
             }
 
             return IsSuccess;
+        }
+
+        public override string ToString()
+        {
+            return string.Join(Environment.NewLine, Errors.Errors.Select(e => e.Description));
         }
     }
 }

@@ -1,0 +1,59 @@
+﻿@page "/kategoria/{Id:int}/produkty"
+@using PornYaShop.DataContext.Entities
+@using PornYaShop.Shared.Models.Requests
+@using PornYaShop.Client.Pages.Components
+@inject PornYaShop.CommunicationServices.GatewayService _gatewayService
+
+
+<div class="products-content">
+
+
+    <div class="products-list">
+        @for (var i = 0; i < 3; i++)
+        {
+            @foreach (var product in Products)
+            {
+                foreach (var variant in product.Variants)
+                {
+                    <ProductCard product="@product" productVariant="@variant"></ProductCard>
+                }
+            }
+        }
+    </div>
+
+    <PaginationList TotalPages="TotalPages" SelectedPage="SelectedPage" OnPageSelected="ReloadProducts"></PaginationList>
+
+</div>
+
+@functions {
+    [Parameter]
+    int Id { get; set; }
+
+    IEnumerable<Product> Products { get; set; } = new List<Product>();
+    ProductsFilter productsFilter = new ProductsFilter();
+    int TotalPages { get; set; } = 5;
+    int SelectedPage { get; set; } = 0;
+
+    protected override async void OnParametersSet()
+    {
+        productsFilter.CategoryId = Id;
+        await ReloadProducts(0);
+    }
+
+    async Task ReloadProducts(int page)
+    {
+        productsFilter.Page = page;
+        var response = await _gatewayService.products.FilterProducts(productsFilter);
+        if (response.IsSuccess)
+        {
+            Products = response.Results;
+            //TotalPages = response.TotalPages;
+            SelectedPage = response.Page;
+            StateHasChanged();
+        }
+        else
+        {
+            Console.WriteLine(response.ToString());
+        }
+    }
+}

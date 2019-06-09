@@ -1,6 +1,7 @@
 ﻿@using PornYaShop.CommunicationServices
 @using PornYaShop.DataContext.Entities
 @inject GatewayService _gatewayService
+@inject Microsoft.AspNetCore.Components.IUriHelper UriHelper
 
 <div class="side-nav">
     <div>
@@ -14,9 +15,9 @@
         </div>
     </div>
     <ul>
-        @foreach(var category in Categories)
+        @foreach (var category in Categories)
         {
-            <li><a>@category.Name</a></li>
+            <li><a onclick="@(() => GoToCategory(category.Id))">@category.Name</a></li>
         }
         <li><a>Zľavy</a></li>
     </ul>
@@ -35,5 +36,10 @@
     {
         var response = await _gatewayService.categories.GetCategories();
         Categories = response.Results;
+    }
+
+    void GoToCategory(int id)
+    {
+        UriHelper.NavigateTo($"kategoria/{id}/produkty");
     }
 }

@@ -1,4 +1,5 @@
 ﻿using PornYaShop.DataContext.Entities;
+using PornYaShop.Shared.Models.Requests;
 using PornYaShop.Shared.Models.ViewModels;
 using PornYaShop.Shared.RestClient;
 using System;
@@ -39,6 +40,12 @@ namespace PornYaShop.CommunicationServices
             public async Task<BaseResponse<Product>> EditAsync(Product model)
             {
                 var x = await RestClient.Put<Product>(Endpoints.Gateway.Products.Edit, model);
+                return x;
+            }
+
+            public async Task<BaseResponse<IEnumerable<Product>>> FilterProducts(ProductsFilter model)
+            {
+                var x = await RestClient.Post<IEnumerable<Product>>(Endpoints.Gateway.Products.Filter, model);
                 return x;
             }
         }

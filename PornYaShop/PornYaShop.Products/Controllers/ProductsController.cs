@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PornYaShop.DataContext.Entities;
 using PornYaShop.Products.Services.Interfaces;
+using PornYaShop.Shared.Models.Requests;
 
 namespace PornYaShop.Products.Controllers
 {
@@ -42,6 +43,13 @@ namespace PornYaShop.Products.Controllers
         public async Task<IActionResult> Edit([FromBody] Product product)
         {
             var response = await _productsService.EditProductAsync(product);
+            return Ok(response);
+        }
+
+        [HttpPost("filter")]
+        public async Task<IActionResult> Filter([FromBody] ProductsFilter productsFilter)
+        {
+            var response = await _productsService.Filter(productsFilter);
             return Ok(response);
         }
 

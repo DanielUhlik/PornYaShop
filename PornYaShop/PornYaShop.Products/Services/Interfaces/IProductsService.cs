@@ -1,4 +1,5 @@
 ﻿using PornYaShop.DataContext.Entities;
+using PornYaShop.Shared.Models.Requests;
 using PornYaShop.Shared.Models.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace PornYaShop.Products.Services.Interfaces
         Task<BaseResponse<Product>> CreateProductAsync(Product product);
         Task<BaseResponse<Product>> GetProductByIdAsync(int id);
         Task<BaseResponse<Product>> EditProductAsync(Product product);
+        Task<BaseResponse<IEnumerable<Product>>> Filter(ProductsFilter productsFilter);
 
         #endregion
 

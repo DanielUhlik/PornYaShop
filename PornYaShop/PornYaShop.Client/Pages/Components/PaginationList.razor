@@ -1,0 +1,30 @@
+﻿
+<div class="pagination-list">
+    <ul>
+        @if (TotalPages > 1)
+        {
+            @for(var i = 0; i < TotalPages; i++)
+            {
+                var tempI = i; 
+                <li class="@(i == SelectedPage ? "active" : "")" onclick="@(() => SelectPage(tempI))">@(tempI+1)</li>
+            }
+        }
+    </ul>
+</div>
+
+@functions {
+    [Parameter]
+    int TotalPages { get; set; } = 0;
+
+    [Parameter]
+    int SelectedPage { get; set; } = 0;
+
+    [Parameter]
+    EventCallback<int> OnPageSelected { get; set; }
+
+    async void SelectPage(int page)
+    {
+        await OnPageSelected.InvokeAsync(page);
+    }
+
+}
