@@ -3,6 +3,7 @@
 @using PornYaShop.CommunicationServices
 @using PornYaShop.Shared.Models.ViewModels
 @using PornYaShop.Admin.Services
+@using PornYaShop.Admin.Pages.Products.Components
 
 @inject GatewayService _gatewayService
 @inject NotificationService _notificationService
@@ -28,7 +29,9 @@
         </div>
         <div class="uk-width-1-2"></div>
     </div>
-    <div class="variants"></div>
+    <div class="variants">
+        <ProductVariantsList ProductVariants="@product.Variants.ToList()" productId="@product.Id"></ProductVariantsList>
+    </div>
 </div>
 
 <div class="fab" onclick="@UpdateProduct">

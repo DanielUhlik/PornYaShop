@@ -1,0 +1,46 @@
+﻿@using PornYaShop.Admin.Pages
+@using PornYaShop.DataContext.Entities
+@using PornYaShop.CommunicationServices
+@inject GatewayService _gatewayService
+
+<button class="uk-button uk-button-primary" uk-toggle="target: #@ModalId">Upraviť</button>
+<Modal Id="@ModalId" Title="Vytvorenie variantu produktu" OnPositive="@EditExistingProductVariant">
+    <fieldset class="uk-fieldset">
+        <div class="uk-margin uk-form-stacked">
+            <div>
+                <label class="uk-form-label">Názov variantu</label>
+                <input class="uk-input" type="text" placeholder="Názov" bind="@productVariant.Title" />
+            </div>
+            <div>
+                <label class="uk-form-label">Zľava</label>
+                <input class="uk-input" type="number" bind="@productVariant.Discount" />
+            </div>
+        </div>
+        <ProductSizeEditList ProductSizes="productVariant.Sizes"></ProductSizeEditList>
+    </fieldset>
+</Modal>
+
+
+@functions{
+
+    string ModalId { get; set; }
+
+    [Parameter]
+    ProductVariant productVariant { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        ModalId = "edit-productvariant" + productVariant.Id;
+        base.OnParametersSet();
+    }
+
+    async Task EditExistingProductVariant(UIMouseEventArgs e)
+    {
+        var response = await _gatewayService.productVariants.EditProductVariant(productVariant);
+        if (response.IsSuccess)
+        {
+            productVariant = response.Results;
+        }
+    }
+
+}

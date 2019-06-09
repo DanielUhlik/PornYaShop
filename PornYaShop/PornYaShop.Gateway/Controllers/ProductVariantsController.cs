@@ -10,11 +10,11 @@ namespace PornYaShop.Gateway.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductsVariantsController : ControllerBase
+    public class ProductVariantsController : ControllerBase
     {
         private ProductsService _productsService;
 
-        public ProductsVariantsController(ProductsService productsService)
+        public ProductVariantsController(ProductsService productsService)
         {
             _productsService = productsService;
         }

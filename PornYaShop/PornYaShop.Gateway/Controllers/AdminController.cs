@@ -50,7 +50,7 @@ namespace PornYaShop.Gateway.Controllers
             return BadRequest(response);
         }
 
-        [HttpPost("productsVariants")]
+        [HttpPost("productVariants")]
         public async Task<IActionResult> CreateProductVariant([FromBody] ProductVariant productVariant)
         {
             var response = await _productsService.CreateProductVariantAsync(productVariant);
@@ -59,7 +59,7 @@ namespace PornYaShop.Gateway.Controllers
             return BadRequest(response);
         }
 
-        [HttpPut("productsVariants")]
+        [HttpPut("productVariants")]
         public async Task<IActionResult> EditProductVariant([FromBody] ProductVariant productVariant)
         {
             var response = await _productsService.EditProductVariantAsync(productVariant);

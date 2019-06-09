@@ -1,0 +1,52 @@
+﻿@using PornYaShop.Admin.Pages
+@using PornYaShop.DataContext.Entities
+@using PornYaShop.CommunicationServices
+@inject GatewayService _gatewayService
+
+<button class="uk-button uk-button-primary" uk-toggle="target: #@ModalId">Pridať</button>
+    <Modal Id="@ModalId" Title="Vytvorenie variantu produktu" OnPositive="@CreateNewProductVariant">
+        <fieldset class="uk-fieldset">
+            <div class="uk-margin uk-form-stacked">
+                <div>
+                    <label class="uk-form-label">Názov variantu</label>
+                    <input class="uk-input" type="text" placeholder="Názov" bind="@productVariant.Title" />
+                </div>
+                <div>
+                    <label class="uk-form-label">Zľava</label>
+                    <input class="uk-input" type="number" bind="@productVariant.Discount" />
+                </div>
+            </div>
+        </fieldset>
+    </Modal>
+
+
+@functions{
+    [Parameter]
+    int productId { get; set; }
+
+    [Parameter]
+    EventCallback<ProductVariant> OnProductVariantCreated { get; set; }
+
+    string ModalId { get; set; }
+
+    ProductVariant productVariant = new ProductVariant();
+
+    protected override void OnParametersSet()
+    {
+        ModalId = "create-productvariant-product" + productId;
+        productVariant.ProductId = productId;
+        base.OnParametersSet();
+    }
+
+    async Task CreateNewProductVariant(UIMouseEventArgs e)
+    {
+        var response = await _gatewayService.productVariants.CreateProductVariant(productVariant);
+        if (response.IsSuccess)
+        {
+            await OnProductVariantCreated.InvokeAsync(productVariant);
+            productVariant = new ProductVariant();
+            productVariant.ProductId = productId;
+        }
+    }
+
+}

@@ -24,6 +24,11 @@ namespace PornYaShop.DataContext.Data
                 .HasMany(p => p.Variants)
                 .WithOne(pv => pv.Product)
                 .HasForeignKey(pv => pv.ProductId);
+
+            modelBuilder.Entity<ProductVariant>()
+                .HasMany(p => p.Sizes)
+                .WithOne(s => s.ProductVariant)
+                .HasForeignKey(s => s.ProductVariantId);
         }
 
         public DbSet<Category> Category { get; set; }

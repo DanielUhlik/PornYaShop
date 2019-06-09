@@ -18,10 +18,10 @@ namespace PornYaShop.Shared.RestClient
 
             public static class ProductVariants
             {
-                public static string GetProductVariants(int productId) => baseUrl + "productsVariants/product/" + productId;
-                public static string GetById(int id) => baseUrl + "productsVariants/" + id;
-                public static string Create = baseUrl + "admin/productsVariants";
-                public static string Edit = baseUrl + "admin/productsVariants";
+                public static string GetProductVariants(int productId) => baseUrl + "productVariants/product/" + productId;
+                public static string GetById(int id) => baseUrl + "productVariants/" + id;
+                public static string Create = baseUrl + "admin/productVariants";
+                public static string Edit = baseUrl + "admin/productVariants";
             }
 
             public static class Categories
@@ -43,9 +43,9 @@ namespace PornYaShop.Shared.RestClient
 
         public static class ProductVariants
         {
-            private static readonly string baseUrl = "https://pornyashop.products:443/api/productsVariants/";
+            private static readonly string baseUrl = "https://pornyashop.products:443/api/productVariants/";
             public static string Create = baseUrl;
-            public static string GetProductVariants(int productId) => baseUrl + "/product/" + productId;
+            public static string GetProductVariants(int productId) => baseUrl + "product/" + productId;
             public static string GetById(int id) => baseUrl + id;
             public static string Edit = baseUrl;
         }

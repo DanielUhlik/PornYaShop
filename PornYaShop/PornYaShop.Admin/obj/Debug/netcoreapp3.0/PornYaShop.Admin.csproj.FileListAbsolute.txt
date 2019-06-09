@@ -182,3 +182,11 @@ D:\pornya\PornYaShop\PornYaShop.Admin\obj\Debug\netcoreapp3.0\PornYaShop.Admin.R
 D:\pornya\PornYaShop\PornYaShop.Admin\obj\Debug\netcoreapp3.0\PornYaShop.Admin.RazorTargetAssemblyInfo.cs
 D:\pornya\PornYaShop\PornYaShop.Admin\obj\Debug\netcoreapp3.0\PornYaShop.Admin.Views.pdb
 D:\pornya\PornYaShop\PornYaShop.Admin\obj\Debug\netcoreapp3.0\PornYaShop.Admin.csproj.CopyComplete
+D:\pornya\PornYaShop\PornYaShop.Admin\obj\Debug\netcoreapp3.0\RazorDeclaration\Pages\Products\Components\ProductVariantsList.razor.g.cs
+D:\pornya\PornYaShop\PornYaShop.Admin\obj\Debug\netcoreapp3.0\Razor\Pages\Products\Components\ProductVariantsList.razor.g.cs
+D:\pornya\PornYaShop\PornYaShop.Admin\obj\Debug\netcoreapp3.0\RazorDeclaration\Pages\Products\Components\CreateProductVariant.razor.g.cs
+D:\pornya\PornYaShop\PornYaShop.Admin\obj\Debug\netcoreapp3.0\Razor\Pages\Products\Components\CreateProductVariant.razor.g.cs
+D:\pornya\PornYaShop\PornYaShop.Admin\obj\Debug\netcoreapp3.0\RazorDeclaration\Pages\Products\Components\EditProductVariant.razor.g.cs
+D:\pornya\PornYaShop\PornYaShop.Admin\obj\Debug\netcoreapp3.0\RazorDeclaration\Pages\Products\Components\ProductSizeEditList.razor.g.cs
+D:\pornya\PornYaShop\PornYaShop.Admin\obj\Debug\netcoreapp3.0\Razor\Pages\Products\Components\EditProductVariant.razor.g.cs
+D:\pornya\PornYaShop\PornYaShop.Admin\obj\Debug\netcoreapp3.0\Razor\Pages\Products\Components\ProductSizeEditList.razor.g.cs

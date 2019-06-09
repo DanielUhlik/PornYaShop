@@ -1,0 +1,33 @@
+﻿@using PornYaShop.DataContext.Entities
+
+<div>
+    <h2>Varianty produktu</h2>
+    <span class="uk-align-right"><button class="uk-button uk-button-primary uk-align-right uk-margin-remove" onclick="@AddSize">Pridať variant</button></span>
+</div>
+<table class="uk-table uk-table-striped uk-table-hover">
+    <thead>
+        <tr>
+            <th>Veľkosť</th>
+            <th>Počet</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var variant in ProductSizes)
+        {
+            <tr>
+                <td><input class="uk-input" bind="@variant.Title" /></td>
+                <td><input class="uk-input" type="number" bind="@variant.AvailableCount" /></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@functions {
+    [Parameter]
+    ICollection<ProductSize> ProductSizes { get; set; }
+
+    void AddSize()
+    {
+        ProductSizes.Add(new ProductSize());
+    }
+}

@@ -9,7 +9,7 @@ namespace PornYaShop.DataContext.Entities
         public int Id { get; set; }
         public string Title { get; set; }
         public int Discount { get; set; }
-        public int AvailableCount { get; set; }
+        public ICollection<ProductSize> Sizes { get; set; }
         public Product Product { get; set; }
         public int ProductId { get; set; }
     }

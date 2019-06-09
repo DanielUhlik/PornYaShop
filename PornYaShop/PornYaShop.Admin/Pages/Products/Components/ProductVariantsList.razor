@@ -1,0 +1,41 @@
+﻿@using PornYaShop.DataContext.Entities
+
+<div class="uk-card uk-card-default uk-card-body">
+    <div>
+        <h2>Varianty produktu</h2>
+        <span class="uk-align-right"><CreateProductVariant OnProductVariantCreated="@OnProductVariantCreated" productId="@productId"></CreateProductVariant></span>
+    </div>
+    <table class="uk-table uk-table-striped uk-table-hover">
+        <thead>
+            <tr>
+                <th>Názov</th>
+                <th>Zľava</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var variant in ProductVariants)
+            {
+                <tr>
+                    <td>@variant.Title</td>
+                    <td>@variant.Discount%</td>
+                    <td><EditProductVariant productVariant="variant"></EditProductVariant></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+@functions{
+    [Parameter]
+    List<ProductVariant> ProductVariants { get; set; }
+
+    [Parameter]
+    int productId { get; set; }
+
+    void OnProductVariantCreated(ProductVariant productVariant)
+    {
+        ProductVariants.Add(productVariant);
+    }
+}

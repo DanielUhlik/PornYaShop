@@ -13,11 +13,13 @@ namespace PornYaShop.CommunicationServices
 
         public Products products;
         public Categories categories;
+        public ProductVariants productVariants;
 
         public GatewayService()
         {
             products = new Products();
             categories = new Categories();
+            productVariants = new ProductVariants();
         }
 
         public class Products

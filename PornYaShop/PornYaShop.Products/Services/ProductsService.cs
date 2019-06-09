@@ -52,7 +52,7 @@ namespace PornYaShop.Products.Services
 
             _ = await response.SafeCall(async () =>
             {
-                response.Results = await _context.Product.Include(p => p.Variants).FirstAsync(p => p.Id == id);
+                response.Results = await _context.Product.Include(p => p.Variants).ThenInclude(pv => pv.Sizes).FirstAsync(p => p.Id == id);
             });
             return response;
         }

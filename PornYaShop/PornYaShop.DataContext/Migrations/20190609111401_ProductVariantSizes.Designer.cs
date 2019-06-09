@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PornYaShop.DataContext.Data;
 
 namespace PornYaShop.DataContext.Migrations
 {
     [DbContext(typeof(ShopContext))]
-    partial class ShopContextModelSnapshot : ModelSnapshot
+    [Migration("20190609111401_ProductVariantSizes")]
+    partial class ProductVariantSizes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -60,13 +62,13 @@ namespace PornYaShop.DataContext.Migrations
 
                     b.Property<int>("AvailableCount");
 
-                    b.Property<int>("ProductVariantId");
+                    b.Property<int>("ProdiczVariantId");
 
                     b.Property<string>("Title");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductVariantId");
+                    b.HasIndex("ProdiczVariantId");
 
                     b.ToTable("ProductSize");
                 });
@@ -103,7 +105,7 @@ namespace PornYaShop.DataContext.Migrations
                 {
                     b.HasOne("PornYaShop.DataContext.Entities.ProductVariant", "ProductVariant")
                         .WithMany("Sizes")
-                        .HasForeignKey("ProductVariantId")
+                        .HasForeignKey("ProdiczVariantId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

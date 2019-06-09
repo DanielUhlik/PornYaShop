@@ -20,7 +20,7 @@ namespace PornYaShop.Products.Controllers
             _productsService = productsService;
         }
 
-        [HttpGet("/product/{productId}")]
+        [HttpGet("product/{productId}")]
         public async Task<IActionResult> GetProductVariants([FromRoute] int productId)
         {
             return Ok( _productsService.GetProductVariants(productId));
